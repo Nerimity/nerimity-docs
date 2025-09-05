@@ -15,8 +15,8 @@ You can connect to the desktop app by using the WebSocket Server.
 
 To find the localhost port for the WebSocket Server, you will need to:
 
-1. Scan through port ranges `6463` to `6472`
-2. Connect to each port, and see if `HELLO_NERIMITY_RPC` is received.
+1. Scan through port ranges `6463` to `6472`.
+2. Connect to each port, (`ws://localhost:6464/?appId=123455678987654321`) and see if `HELLO_NERIMITY_RPC` is received.
 3. if it is not received, try the next port.
 4. if it is received, You are now connected to the WebSocket Server.
 
