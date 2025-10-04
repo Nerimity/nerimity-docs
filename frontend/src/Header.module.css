@@ -1,14 +1,14 @@
 .header {
   position: sticky;
-  top: 0;
   z-index: 50;
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 56px;
   padding: 0 1rem;
-  background: var(--background);
   border-bottom: 1px solid var(--border);
+  background: var(--background);
 }
 
 .left {
@@ -18,9 +18,9 @@
 }
 
 .logo {
-  font-weight: 600;
-  font-size: 1rem;
   color: var(--text);
+  font-size: 1rem;
+  font-weight: 600;
   text-decoration: none;
 }
 
@@ -36,15 +36,23 @@
   justify-content: center;
   width: 44px;
   height: 44px;
-  border-radius: 10px;
-  background: transparent;
   border: none;
-  color: var(--text-secondary);
+  border-radius: 10px;
+  color: var(--selected-text-color);
+  background: transparent;
   cursor: pointer;
   transition: background 0.15s, color 0.15s;
 }
 
 .iconButton:hover {
-  background: var(--hover);
-  color: var(--text);
+  background-color: var(--selected-bg);
+}
+[data-open-drawer-button] {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  [data-open-drawer-button] {
+    display: block;
+  }
 }
