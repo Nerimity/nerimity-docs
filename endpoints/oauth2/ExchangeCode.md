@@ -25,5 +25,9 @@ POST https://nerimity.com/api/oauth2/token
 #### Response:
 
 ```json
-{ "status": true }
+{
+  "accessToken": "1234",
+  "expiresIn": 86400,
+  "refreshToken": "5678"
+}
 ```
