@@ -31,6 +31,12 @@
 
     - [Execute Webhook [POST]](/endpoints/webhooks/ExecuteWebhook.md)
 
+  - OAuth2
+
+    - [Exchange Code [POST]](/endpoints/oauth2/ExchangeCode.md)
+    - [Refresh Access Token [POST]](/endpoints/oauth2/RefreshAccessToken.md)
+    - [Current User [GET]](/endpoints/oauth2/CurrentUser.md)
+
 - ### Websocket
 
   - ROOT
