@@ -1,39 +1,52 @@
 .header {
+  position: sticky;
+  z-index: 50;
+  top: 0;
   display: flex;
   align-items: center;
-  height: 50px;
-  padding-left: 10px;
-  background-color: var(--pane-color);
+  justify-content: space-between;
+  height: 56px;
+  padding: 0 1rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--background);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo {
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
 }
 
 .right {
   display: flex;
-  margin-right: 8px;
-  margin-left: auto;
-  gap: 8px;
-
-  .separator {
-    width: 1px;
-    height: 29px;
-    background-color: var(--border-color);
-  }
-  
-
-
-  
+  align-items: center;
+  gap: 0.5rem;
 }
-.button {
-  padding: 4px;
-  border-radius: 4px;
+
+.iconButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 10px;
   color: var(--selected-text-color);
+  background: transparent;
   cursor: pointer;
-  transition: 0.2s;
-  text-decoration: none;
-  &:hover {
-    background-color: var(--selected-bg);
-  }
+  transition: background 0.15s, color 0.15s;
 }
 
+.iconButton:hover {
+  background-color: var(--selected-bg);
+}
 [data-open-drawer-button] {
   display: none;
 }

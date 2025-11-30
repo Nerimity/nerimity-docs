@@ -24,8 +24,23 @@ md.use(MarkdownItAnchor);
 md.use(MarkdownItHighlight, { auto: false });
 
 function fetchDocs(path: string) {
-  if (path === "/.md") return "## Select a page from the drawer.";
-  return fetch("/docs" + path).then((r) => {
+  if (path === "/.md") {
+    return Promise.resolve(`
+# Welcome to Nerimity Docs
+
+Explore the documentation using the drawer on the left.
+
+PS: This documentation is unfinished, and will be improved over time!
+
+---
+
+_Select a page from the drawer to get started!_
+
+![More soon](https://c.tenor.com/FnQi_p4WS-sAAAAC/tenor.gif)
+`);
+  }
+
+  return fetch("/docs" + path).then(async (r) => {
     if (r.status !== 200) return "## This page does not exist.";
     return r.text();
   });

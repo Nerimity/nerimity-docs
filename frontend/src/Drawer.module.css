@@ -28,7 +28,6 @@
     margin-top: 4px;
     margin-bottom: 18px;
 
-
     & ul {
       display: none;
     }
@@ -44,8 +43,6 @@
     &:hover {
       color: var(--selected-text-color);
     }
-
-
   }
   h2 {
     margin-top: 0;
@@ -125,9 +122,11 @@
   .drawer {
     position: fixed;
     z-index: 1111111111111111111111;
-    top: 8px;
-    bottom: 8px;
-    inset: 0;
+    top: 50px;
+    right: 0;
+    bottom: 0px;
+    left: 0;
+    margin: 0;
   }
   .backdrop {
     position: absolute;
