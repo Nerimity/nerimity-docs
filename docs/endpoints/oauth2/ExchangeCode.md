@@ -1,6 +1,6 @@
 # Exchange Code
 
-Ban a member from a server. You must be a server owner/have permission to ban.
+Exchange an authorization code or refresh token for an access token.
 
 #### Endpoint
 
