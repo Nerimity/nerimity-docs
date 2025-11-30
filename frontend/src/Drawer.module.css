@@ -36,7 +36,7 @@
     padding-top: 4px;
     padding-bottom: 2px;
     margin: 0;
-    cursor: pointer;
+    /* cursor: pointer; */
     user-select: none;
     transition: 0.2s;
     font-size: 18px;

@@ -27,12 +27,12 @@ export const Drawer = () => {
 
   const location = useLocation();
 
-  const onCategoryClick = (clickedCategory: string) => {
-    const test = document.querySelector(
-      `.${style.drawer} .category.${clickedCategory}`
-    );
-    test?.classList.toggle("show");
-  };
+  // const onCategoryClick = (clickedCategory: string) => {
+  //   const test = document.querySelector(
+  //     `.${style.drawer} .category.${clickedCategory}`
+  //   );
+  //   test?.classList.toggle("show");
+  // };
 
   createEffect(
     on(docs, () => {
@@ -42,11 +42,11 @@ export const Drawer = () => {
       lis.forEach((li) => {
         if (li.firstChild?.nodeName === "H3") {
           mainCategory = li.firstChild.textContent!;
-          li.classList.add("category", mainCategory);
+          li.classList.add("category", mainCategory, "show");
 
-          if (li.querySelector("[data-selected='true']")) {
-            onCategoryClick(mainCategory);
-          }
+          // if (li.querySelector("[data-selected='true']")) {
+          //   onCategoryClick(mainCategory);
+          // }
 
           return;
         }
@@ -78,7 +78,13 @@ export const Drawer = () => {
               h3: (h3) => {
                 const child = children(h3.children as any);
                 const name = child.toArray()[0] as string;
-                return <h3 onClick={() => onCategoryClick(name)}>{name}</h3>;
+                return (
+                  <h3
+                  // onClick={() => onCategoryClick(name)}
+                  >
+                    {name}
+                  </h3>
+                );
               },
               a: (a) => {
                 const child = children(a.children as any);
