@@ -1,5 +1,5 @@
-# Get Post
-Get a Post by its ID.
+# Create Comment
+Create a comment on a post by its ID.
 
 #### Endpoint
 ```
