@@ -8,13 +8,14 @@ Exchange an authorization code or refresh token for an access token.
 POST https://nerimity.com/api/oauth2/token
 ```
 
-| Query        | Description                             |
-| ------------ | --------------------------------------- |
-| grantType    | `authorization_code` or `refresh_token` |
-| clientId     | Your application id                     |
-| redirectUri  | Your application redirect uri           |
-| code         | Your authorization code                 |
-| clientSecret | Your application secret                 |
+| Query        | Description                             | grantType          |
+| ------------ | --------------------------------------- | ------------------ |
+| grantType    | `authorization_code` or `refresh_token` | Both               |
+| clientId     | Your application id                     | Both               |
+| redirectUri  | Your application redirect uri           | authorization_code |
+| code         | Your authorization code                 | authorization_code |
+| refreshToken | Your refreshToken token                 | refresh_token      |
+| clientSecret | Your application secret                 | Both               |
 
 #### Example
 
