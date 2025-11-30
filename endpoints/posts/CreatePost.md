@@ -1,5 +1,6 @@
-# Get Post
-Get a Post by its ID.
+# Create Post
+
+Create a new post.
 
 #### Endpoint
 ```
