@@ -16,8 +16,6 @@ You can use the [SocketIO Client](https://socket.io/docs/) to connect to the Web
 ```js
 import io from "socket.io-client";
 
-const token = "YOUR_TOKEN";
-
 const socket = io("https://nerimity.com", {
   transports: ["websocket"],
 });
