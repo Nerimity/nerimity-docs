@@ -14,13 +14,17 @@ const md = markdownit();
 md.use(MarkdownItGitHubAlerts);
 md.use(MarkdownItReplaceLink, {
   replaceLink: (href, title, text) => {
-    if (href.endsWith(".md")) {
-      return href.slice(0, -3);
-    }
-    return href;
+    return href.replace(/\.md(?=($|[#?]))/, "");
   },
 });
-md.use(MarkdownItAnchor);
+md.use(MarkdownItAnchor, {
+  slugify: (s) =>
+  s
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/ /g, '-')
+});
 md.use(MarkdownItHighlight, { auto: false });
 
 function fetchDocs(path: string) {
@@ -76,6 +80,17 @@ export const ContentPane = () => {
     if (!_docs) return;
     const str = md.render(_docs);
     setMarkdown(str);
+  });
+
+  createEffect(() => {
+    const hash = location.hash;
+    if (hash && markdown()) {
+      const id = decodeURIComponent(hash.slice(1));
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
   });
   return (
     <div class={style.container}>

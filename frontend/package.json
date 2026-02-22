@@ -9,24 +9,24 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@solidjs/router": "^0.15.3",
+    "@solidjs/router": "^0.15.4",
     "highlight.js": "^11.11.1",
     "lucide-solid": "^0.544.0",
-    "markdown-it": "^14.1.0",
+    "markdown-it": "^14.1.1",
     "markdown-it-anchor": "^9.2.0",
-    "markdown-it-github-alerts": "^1.0.0",
-    "markdown-it-highlightjs": "^4.2.0",
+    "markdown-it-github-alerts": "^1.0.1",
+    "markdown-it-highlightjs": "^4.3.0",
     "markdown-it-replace-link": "^1.2.2",
     "rehype-github-alert": "^1.0.0",
     "remark-gfm": "^4.0.1",
-    "solid-js": "^1.9.5",
-    "solid-markdown": "^2.0.14"
+    "solid-js": "^1.9.11",
+    "solid-markdown": "^2.1.1"
   },
   "devDependencies": {
     "@types/markdown-it": "^14.1.2",
-    "@types/node": "^22.15.18",
+    "@types/node": "^22.19.11",
     "typescript": "~5.8.3",
-    "vite": "^6.3.5",
-    "vite-plugin-solid": "^2.11.6"
+    "vite": "^7.3.1",
+    "vite-plugin-solid": "^2.11.10"
   }
 }

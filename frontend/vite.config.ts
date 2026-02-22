@@ -10,6 +10,7 @@ const renameMe: () => PluginOption = () => ({
       exclude: ["../**/frontend/**"],
     });
     for await (const filePath of markdownFilesGenerator) {
+      console.log(`Copying ${filePath} to public/docs...`);
       const publicDocsPath = path.join("./public", "docs");
       const fullFilePath = path.join(publicDocsPath, filePath.slice(3));
       fs.mkdirSync(path.dirname(fullFilePath), { recursive: true });

@@ -9,7 +9,7 @@ function App() {
       <Header />
       <div class={style.container}>
         <Drawer />
-        <ContentPane />
+        <ContentPane  />
       </div>
     </>
   );
