@@ -36,6 +36,10 @@
     - [Exchange Code [POST]](/endpoints/oauth2/ExchangeCode.md)
     - [Current User [GET]](/endpoints/oauth2/CurrentUser.md)
     - [Current User Servers[GET]](/endpoints/oauth2/CurrentUserServers.md)
+  - Voice 
+
+    - [Join Voice Channel [POST]](/endpoints/voice/join.md)
+    - [Leave Voice Channel [POST]](/endpoints/voice/leave.md)
 
 - ### Websocket
 
