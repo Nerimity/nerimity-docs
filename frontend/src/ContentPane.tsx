@@ -58,7 +58,7 @@ PS: This documentation is unfinished, and will be improved over time!
 
 _Select a page from the drawer to get started!_
 
-![More soon](https://c.tenor.com/FnQi_p4WS-sAAAAC/tenor.gif)
+
 `);
   }
 
