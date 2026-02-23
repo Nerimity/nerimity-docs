@@ -1,5 +1,5 @@
 :root {
-  .dark { 
+  .dark {
     --primary-color: rgb(172, 191, 255);
     --text-color: white;
     --bg-color: black;
@@ -14,6 +14,7 @@
     --hover-bg: rgba(255, 255, 255, 0.1);
 
     --border-color: rgba(255, 255, 255, 0.2);
+    color-scheme: dark;
   }
   .light {
     --primary-color: rgb(46, 87, 223);
@@ -27,20 +28,18 @@
     --dim-text: rgba(0, 0, 0, 0.6);
     --extra-dim-text: rgba(0, 0, 0, 0.6);
 
-
     --hover-bg: rgba(0, 0, 0, 0.04);
 
     --border-color: rgba(0, 0, 0, 0.2);
   }
-
 }
 
 * {
   box-sizing: border-box;
 }
 
-
-body, html {
+body,
+html {
   height: 100px;
   padding: 0;
   margin: 0;
@@ -55,5 +54,7 @@ body, html {
   overflow: hidden;
   flex-direction: column;
   height: 100vh;
-
+}
+.scroll {
+  scrollbar-width: thin;
 }

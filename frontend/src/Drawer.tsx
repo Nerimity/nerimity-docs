@@ -17,7 +17,7 @@ const fetchDocs = () => {
 const requestMethods = ["GET", "POST", "DELETE", "PATCH", "PUT"];
 
 export const [drawerState, setDrawerState] = createSignal<"OPENED" | "CLOSED">(
-  "OPENED"
+  "OPENED",
 );
 
 export const openDrawer = () => setDrawerState("OPENED");
@@ -51,7 +51,7 @@ export const Drawer = () => {
           return;
         }
       });
-    })
+    }),
   );
 
   return (
@@ -62,7 +62,7 @@ export const Drawer = () => {
           onClick={() => setDrawerState("CLOSED")}
         ></div>
       </Show>
-      <div class={style.drawer} data-state={drawerState()}>
+      <div class={`${style.drawer} scroll`} data-state={drawerState()}>
         <Show when={!docs.loading}>
           <SolidMarkdown
             children={docs()!}
@@ -90,7 +90,7 @@ export const Drawer = () => {
                 const child = children(a.children as any);
                 const text = child.toArray()[0] as string;
                 const requestMethod = requestMethods.find((m) =>
-                  text.includes(`[${m}]`)
+                  text.includes(`[${m}]`),
                 );
                 return (
                   <A

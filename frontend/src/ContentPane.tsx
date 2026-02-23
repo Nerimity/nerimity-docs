@@ -111,7 +111,7 @@ export const ContentPane = () => {
     }
   });
   return (
-    <div class={style.container}>
+    <div class={`${style.container} scroll`}>
       <Show when={md}>
         <div innerHTML={markdown()}></div>
       </Show>
