@@ -3,6 +3,7 @@
   flex-shrink: 0;
   width: 340px;
   padding: 8px;
+  padding-top: 0;
   margin: 8px;
   border-radius: 8px;
   background-color: var(--pane-color);
@@ -32,7 +33,7 @@
   }
   ul {
     padding: 0;
-    margin-top: 4px;
+    margin-top: 0;
     margin-bottom: 18px;
 
     & ul {
@@ -78,6 +79,8 @@
     color: var(--dim-text);
     font-weight: bold;
     &:first-child h3 {
+      padding-top: 0;
+      margin-top: -8px;
       border-top: none;
     }
 
