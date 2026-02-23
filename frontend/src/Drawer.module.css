@@ -18,10 +18,17 @@
   }
 
   p {
-    margin-top: 2px;
-    margin-bottom: 2px;
-    font-size: 12px;
-    font-weight: bold;
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    gap: 6px;
+    .icon {
+      color: var(--primary-color);
+      font-size: 16px;
+    }
   }
   ul {
     padding: 0;
@@ -33,15 +40,29 @@
     }
   }
   h3 {
+    display: flex;
+    align-items: center;
     padding-top: 4px;
     padding-bottom: 2px;
     margin: 0;
+    margin-bottom: 10px;
+    margin-left: 4px;
     /* cursor: pointer; */
     user-select: none;
     transition: 0.2s;
     font-size: 18px;
+    gap: 10px;
     &:hover {
       color: var(--selected-text-color);
+    }
+    .icon {
+      padding: 4px;
+      border-radius: 50%;
+      color: white;
+      background: #8458ff;
+      background-color: red;
+      font-size: 16px;
+      corner-shape: squircle;
     }
   }
   h2 {
@@ -53,14 +74,16 @@
     display: none;
   }
   li {
+    margin-left: 6px;
     color: var(--dim-text);
     font-weight: bold;
     &:first-child h3 {
       border-top: none;
     }
+
     :global &.show {
       h3 {
-        color: var(--selected-text-color);
+        /* color: var(--selected-text-color); */
       }
     }
     :global &.show,
@@ -75,18 +98,43 @@
       --delete: #cf514d;
       --patch: #c9601a;
       --put: #8b8204;
+      position: relative;
       display: flex;
+      display: flex;
+      align-items: center;
+      width: 100%;
       padding: 6px;
+      padding-left: 10px;
       border-radius: 6px;
       transition: 0.2s;
       font-size: 14px;
+      &:before {
+        position: absolute;
+        left: 0;
+        width: 2px;
+        height: 100%;
+        opacity: 0.4;
+        background-color: var(--selected-text-color);
+        content: "";
+        transition: 0.2s;
+      }
       &:hover {
         color: var(--text-color);
         background-color: var(--hover-bg);
+        &:before {
+          height: 20px;
+          border-radius: 99px;
+          opacity: 1;
+        }
       }
       &[data-selected="true"] {
         color: var(--selected-text-color);
         background-color: var(--selected-bg);
+        &:before {
+          height: 20px;
+          border-radius: 99px;
+          opacity: 1;
+        }
       }
       span {
         flex: 1;

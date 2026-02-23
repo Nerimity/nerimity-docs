@@ -22,6 +22,66 @@ export const [drawerState, setDrawerState] = createSignal<"OPENED" | "CLOSED">(
 
 export const openDrawer = () => setDrawerState("OPENED");
 
+// https://www.css-gradient.com/
+const DrawerMetadata = {
+  Endpoints: {
+    icon: "api",
+    iconBackground: "linear-gradient(315deg, #9765DC, #2CB3C3)",
+  },
+  Websocket: {
+    icon: "sync_alt",
+    iconBackground: "linear-gradient(315deg, #447E5B, #165811)",
+  },
+  Types: {
+    icon: "data_object",
+    iconBackground: "linear-gradient(315deg, #1C59EA, #CA64F1)",
+  },
+  Other: {
+    icon: "more_horiz",
+    iconBackground: "linear-gradient(315deg, #D8BC19, #D72C57)",
+  },
+};
+const SubTitleMetadata = {
+  Channels: {
+    icon: "chat_bubble",
+  },
+  Servers: {
+    icon: "dns",
+  },
+  Commands: {
+    icon: "terminal",
+  },
+  Roles: {
+    icon: "shield",
+  },
+  CDN: {
+    icon: "cloud",
+  },
+  Webhooks: {
+    icon: "webhook",
+  },
+  OAuth2: {
+    icon: "lock",
+  },
+  Voice: {
+    icon: "volume_up",
+  },
+  Sending: {
+    icon: "send",
+  },
+  Receiving: {
+    icon: "download",
+  },
+};
+
+const getMetadata = (title: string) => {
+  return DrawerMetadata[title as keyof typeof DrawerMetadata];
+};
+
+const getSubTitleMetadata = (title: string) => {
+  return SubTitleMetadata[title as keyof typeof SubTitleMetadata];
+};
+
 export const Drawer = () => {
   const [docs] = createResource(fetchDocs);
 
@@ -73,7 +133,18 @@ export const Drawer = () => {
                 if (text === "ROOT") {
                   return null;
                 }
-                return <p>{text}</p>;
+                return (
+                  <p>
+                    <Show when={getSubTitleMetadata(text)?.icon}>
+                      {(icon) => (
+                        <span class={`material-symbols-rounded ${style.icon}`}>
+                          {icon()}
+                        </span>
+                      )}
+                    </Show>
+                    {text}
+                  </p>
+                );
               },
               h3: (h3) => {
                 const child = children(h3.children as any);
@@ -82,6 +153,18 @@ export const Drawer = () => {
                   <h3
                   // onClick={() => onCategoryClick(name)}
                   >
+                    <Show when={getMetadata(name)?.icon}>
+                      {(icon) => (
+                        <span
+                          style={{
+                            background: getMetadata(name).iconBackground,
+                          }}
+                          class={`material-symbols-rounded ${style.icon}`}
+                        >
+                          {icon()}
+                        </span>
+                      )}
+                    </Show>
                     {name}
                   </h3>
                 );
