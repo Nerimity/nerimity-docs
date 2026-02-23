@@ -5,10 +5,21 @@ import markdownit from "markdown-it";
 import MarkdownItGitHubAlerts from "markdown-it-github-alerts";
 import MarkdownItReplaceLink from "markdown-it-replace-link";
 import MarkdownItAnchor from "markdown-it-anchor";
-import MarkdownItHighlight from "markdown-it-highlightjs";
+
+import MarkdownItHighlight from "markdown-it-highlightjs/core";
+import hljs from "highlight.js/lib/core";
+
+import javascript from "highlight.js/lib/languages/javascript";
+import json from "highlight.js/lib/languages/json";
+import typescript from "highlight.js/lib/languages/typescript";
+
 import "markdown-it-github-alerts/styles/github-colors-dark-media.css";
 import "markdown-it-github-alerts/styles/github-base.css";
 import { useTheme } from "./theme";
+
+hljs.registerLanguage("javascript", javascript);
+hljs.registerLanguage("json", json);
+hljs.registerLanguage("typescript", typescript);
 
 const md = markdownit();
 md.use(MarkdownItGitHubAlerts);
@@ -17,15 +28,22 @@ md.use(MarkdownItReplaceLink, {
     return href.replace(/\.md(?=($|[#?]))/, "");
   },
 });
+
+md.use(MarkdownItGitHubAlerts);
+md.use(MarkdownItReplaceLink, {
+  replaceLink: (href, title, text) => {
+    return href.replace(/\.md(?=($|[#?]))/, "");
+  },
+});
 md.use(MarkdownItAnchor, {
   slugify: (s) =>
-  s
-    .toLowerCase()
-    .trim()
-    .replace(/[^\w\s-]/g, '')
-    .replace(/ /g, '-')
+    s
+      .toLowerCase()
+      .trim()
+      .replace(/[^\w\s-]/g, "")
+      .replace(/ /g, "-"),
 });
-md.use(MarkdownItHighlight, { auto: false });
+md.use(MarkdownItHighlight, { hljs, auto: false });
 
 function fetchDocs(path: string) {
   if (path === "/.md") {
