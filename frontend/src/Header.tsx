@@ -1,10 +1,11 @@
+import { Show } from "solid-js";
 import { openDrawer } from "./Drawer";
 import style from "./Header.module.css";
 import { useTheme } from "./theme";
 import { Moon, Sun, Menu, Github } from "lucide-solid";
 
 export const Header = () => {
-  const { toggleTheme } = useTheme();
+  const { toggleTheme, theme } = useTheme();
 
   return (
     <header class={style.header}>
@@ -28,8 +29,12 @@ export const Header = () => {
           onClick={toggleTheme}
           aria-label="Toggle Night Mode"
         >
-          <Moon size={22} class="dark:hidden" />
-          <Sun size={22} class="hidden dark:block" />
+          <Show when={theme() === "dark"}>
+            <Moon size={22} class="dark:hidden" />
+          </Show>
+          <Show when={theme() === "light"}>
+            <Sun size={22} class="hidden dark:block" />
+          </Show>
         </button>
 
         <a
